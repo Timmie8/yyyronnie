@@ -5,6 +5,10 @@ on:
     - cron: '0 */2 * * *'
   workflow_dispatch:
 
+# 👇 DEZE REGELS LOSSEN DE 403 FOUT OP 👇
+permissions:
+  contents: write
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -72,8 +76,6 @@ jobs:
           if __name__ == "__main__":
               asyncio.run(main())
           PYEOF
-          echo "Scraper aangemaakt:"
-          ls -la scripts/
 
       - name: Ensure data directory exists
         run: mkdir -p data
