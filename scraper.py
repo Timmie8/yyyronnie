@@ -3,7 +3,8 @@ import re
 import asyncio
 from playwright.async_api import async_playwright
 
-TICKERS = ["SMG", "AAPL", "TSLA", "NVDA", "MSFT"]  # Pas aan naar jouw tickers
+TICKERS = [TICKERS = ["ERIC", "TXRH", "QURE", "PAG", "IONS", "SMG", "QSR", "HRMY", "POST", "PTCT", "DECK", "TRU", "SAH"]
+]  # Pas aan naar jouw tickers
 
 async def scrape_ticker(ticker):
     async with async_playwright() as p:
