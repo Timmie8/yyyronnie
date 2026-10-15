@@ -1,121 +1,93 @@
 [
   {
-    "ticker": "cx",
-    "aiScore": 50.0,
-    "analysisScore": 81,
-    "sentiment": "Bullish",
-    "date": "81"
+    "ticker": "LQDA",
+    "aiScore": 52.0,
+    "analysisScore": 35,
+    "sentiment": "Neutral",
+    "date": "44"
   },
   {
-    "ticker": "TNL",
-    "aiScore": 66.0,
+    "ticker": "GXO",
+    "aiScore": 62.0,
     "analysisScore": 79,
     "sentiment": "Bullish",
     "date": "79"
   },
   {
-    "ticker": "AA",
-    "aiScore": 80.0,
-    "analysisScore": 66,
-    "sentiment": "Bearish",
-    "date": "86"
-  },
-  {
-    "ticker": "AAPL",
-    "aiScore": 44.0,
-    "analysisScore": 16,
-    "sentiment": "Bearish",
-    "date": "16"
-  },
-  {
-    "ticker": "ERIC",
-    "aiScore": 57.0,
-    "analysisScore": 71,
-    "sentiment": "Bullish",
-    "date": "71"
-  },
-  {
-    "ticker": "TXRH",
-    "aiScore": 71.0,
-    "analysisScore": 48,
+    "ticker": "AZN",
+    "aiScore": 66.0,
+    "analysisScore": 52,
     "sentiment": "Neutral",
-    "date": "51"
+    "date": "11"
   },
   {
-    "ticker": "QURE",
-    "aiScore": 62.0,
+    "ticker": "ANAB",
+    "aiScore": 41.0,
+    "analysisScore": 33,
+    "sentiment": "Neutral",
+    "date": "68"
+  },
+  {
+    "ticker": "ARGX",
+    "aiScore": 89.0,
+    "analysisScore": 79,
+    "sentiment": "Bullish",
+    "date": "79"
+  },
+  {
+    "ticker": "AXSM",
+    "aiScore": 79.0,
     "analysisScore": null,
     "sentiment": "Onbekend",
-    "date": "91"
+    "date": "40"
   },
   {
-    "ticker": "PAG",
-    "aiScore": 70.0,
-    "analysisScore": 32,
-    "sentiment": "Neutral",
-    "date": "96"
-  },
-  {
-    "ticker": "IONS",
-    "aiScore": 67.0,
-    "analysisScore": 84,
-    "sentiment": "Bullish",
-    "date": "84"
-  },
-  {
-    "ticker": "SMG",
-    "aiScore": 60.0,
-    "analysisScore": 72,
-    "sentiment": "Bullish",
-    "date": "72"
-  },
-  {
-    "ticker": "QSR",
-    "aiScore": 65.0,
-    "analysisScore": 44,
-    "sentiment": "Neutral",
-    "date": "87"
-  },
-  {
-    "ticker": "HRMY",
-    "aiScore": 76.0,
-    "analysisScore": 37,
-    "sentiment": "Neutral",
-    "date": "85"
-  },
-  {
-    "ticker": "POST",
-    "aiScore": 47.0,
-    "analysisScore": 55,
-    "sentiment": "Neutral",
-    "date": "67"
-  },
-  {
-    "ticker": "PTCT",
-    "aiScore": 72.0,
-    "analysisScore": 75,
-    "sentiment": "Bullish",
-    "date": "75"
-  },
-  {
-    "ticker": "DECK",
-    "aiScore": 65.0,
-    "analysisScore": 70,
-    "sentiment": "Bullish",
-    "date": "70"
-  },
-  {
-    "ticker": "TRU",
+    "ticker": "ANGO",
     "aiScore": 63.0,
-    "analysisScore": 82,
-    "sentiment": "Bullish",
-    "date": "82"
+    "analysisScore": null,
+    "sentiment": "Onbekend",
+    "date": "60"
   },
   {
-    "ticker": "SAH",
+    "ticker": "PHAT",
+    "aiScore": 42.0,
+    "analysisScore": 47,
+    "sentiment": "Neutral",
+    "date": "65"
+  },
+  {
+    "ticker": "MNDY",
+    "aiScore": 44.0,
+    "analysisScore": 53,
+    "sentiment": "Neutral",
+    "date": "55"
+  },
+  {
+    "ticker": "MBC",
     "aiScore": 66.0,
+    "analysisScore": 34,
+    "sentiment": "Neutral",
+    "date": "05/28/26 21:23"
+  },
+  {
+    "ticker": "KVYO",
+    "aiScore": 38.0,
+    "analysisScore": 52,
+    "sentiment": "Neutral",
+    "date": "05/28/26 21:28"
+  },
+  {
+    "ticker": "PLAY",
+    "aiScore": 54.0,
+    "analysisScore": 47,
+    "sentiment": "Neutral",
+    "date": "60"
+  },
+  {
+    "ticker": "BOOT",
+    "aiScore": 81.0,
     "analysisScore": 78,
     "sentiment": "Bullish",
-    "date": "78"
+    "date": "46"
   }
 ]
