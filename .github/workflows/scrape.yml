@@ -36,7 +36,7 @@ jobs:
           import asyncio
           from playwright.async_api import async_playwright
 
-          TICKERS = ["AA", "AAPL", "ERIC", "TXRH", "QURE", "PAG", "IONS", "SMG", "QSR", "HRMY", "POST", "PTCT", "DECK", "TRU", "SAH"]
+          TICKERS = ["cx", "TNL","AA", "AAPL", "ERIC", "TXRH", "QURE", "PAG", "IONS", "SMG", "QSR", "HRMY", "POST", "PTCT", "DECK", "TRU", "SAH"]
 
           async def scrape_ticker(ticker):
               async with async_playwright() as p:
