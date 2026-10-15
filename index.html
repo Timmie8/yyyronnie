@@ -2,10 +2,23 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>YRobot Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YRobot Live Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         #tradingview_chart { height: 550px; width: 100%; }
+        .loading-spinner {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-left-color: #3b82f6;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans p-4 md:p-8">
@@ -16,38 +29,62 @@
             <span id="lastUpdate" class="text-green-400"></span>
         </p>
 
-        <!-- Scores Tabel -->
-        <div class="bg-gray-800 rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-700">
-            <div class="p-4 border-b border-gray-700">
-                <h2 class="text-lg font-semibold">Live YRobot Scores</h2>
+        <!-- 1. INVOER SECTIE (Nu weer aanwezig!) -->
+        <div class="bg-gray-800 p-5 rounded-xl shadow-lg mb-6 border border-gray-700">
+            <label class="block text-sm font-medium mb-2 text-gray-300">Voeg nieuwe tickers toe (gescheiden door komma's):</label>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input type="text" id="tickerInput" placeholder="Bijv. AMD, META, PLTR" 
+                       class="flex-1 bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition font-mono uppercase">
+                <button onclick="addTickers()" id="addBtn"
+                        class="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition flex items-center justify-center gap-2">
+                    <span>➕ Toevoegen & Analiseren</span>
+                </button>
             </div>
-            <table class="w-full text-left">
-                <thead class="bg-gray-700/50 text-gray-300 text-sm uppercase">
-                    <tr>
-                        <th class="p-4">Ticker</th>
-                        <th class="p-4">Analysis Score</th>
-                        <th class="p-4">AI Score</th>
-                        <th class="p-4">Datum</th>
-                        <th class="p-4 text-center">Actie</th>
-                    </tr>
-                </thead>
-                <tbody id="scoresTableBody"></tbody>
-            </table>
+            <p class="text-xs text-yellow-400 mt-3 flex items-start gap-2 bg-yellow-900/20 p-3 rounded border border-yellow-700/50">
+                <span>💡</span>
+                <span><strong>Let op:</strong> Nieuwe tickers worden live opgehaald. Als yrobot.us dit blokkeert, wordt direct de TradingView-grafiek getoond als betrouwbaar alternatief.</span>
+            </p>
         </div>
 
-        <!-- Grafiek -->
+        <!-- 2. Scores Tabel -->
+        <div class="bg-gray-800 rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-700">
+            <div class="p-4 border-b border-gray-700 flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Live Scores Overzicht</h2>
+                <button onclick="loadData()" class="text-xs bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded transition">🔄 Ververs Tabel</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-700/50 text-gray-300 text-sm uppercase">
+                        <tr>
+                            <th class="p-4">Ticker</th>
+                            <th class="p-4">Analysis Score</th>
+                            <th class="p-4">AI Score</th>
+                            <th class="p-4">Datum</th>
+                            <th class="p-4 text-center">Actie</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scoresTableBody">
+                        <tr><td colspan="5" class="p-8 text-center text-gray-500">Laden...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 3. Grafiek Sectie -->
         <div class="bg-gray-800 p-1 rounded-xl shadow-lg border border-gray-700">
             <h2 class="text-xl font-bold text-blue-400 p-4" id="chartTitle">Grafiek: SMG</h2>
             <div id="tradingview_chart"></div>
         </div>
     </div>
 
+    <!-- TradingView Script -->
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
         let currentWidget = null;
+        let knownData = {}; // Sla de opgehaalde data hier op
 
         function loadChart(ticker) {
-            document.getElementById('chartTitle').innerText = `Grafiek: ${ticker}`;
+            document.getElementById('chartTitle').innerText = `Grafiek: ${ticker.toUpperCase()}`;
             if (currentWidget) document.getElementById('tradingview_chart').innerHTML = '';
             currentWidget = new TradingView.widget({
                 "autosize": true, "symbol": ticker, "interval": "D",
@@ -56,60 +93,134 @@
             });
         }
 
+        // Laad de vooraf gescrapete data van GitHub
         async function loadData() {
             try {
-                // Haal het JSON-bestand op uit je eigen repo
                 const response = await fetch('./data/data.json?t=' + Date.now());
                 const data = await response.json();
-                const tbody = document.getElementById('scoresTableBody');
-                tbody.innerHTML = '';
-
+                knownData = {};
                 data.forEach(item => {
-                    if (item.error) {
-                        tbody.innerHTML += `<tr><td colspan="5" class="p-4 text-red-400">${item.ticker}: ${item.error}</td></tr>`;
-                        return;
-                    }
-                    
-                    const isBullish = item.sentiment === 'Bullish';
-                    const color = isBullish ? 'bg-green-900/50 text-green-400 border-green-700' : 'bg-red-900/50 text-red-400 border-red-700';
-                    const aiColor = item.aiScore >= 60 ? 'bg-green-500' : item.aiScore >= 40 ? 'bg-yellow-500' : 'bg-red-500';
-
-                    tbody.innerHTML += `
-                        <tr class="border-b border-gray-700/50 hover:bg-gray-700/30">
-                            <td class="p-4 font-bold text-blue-400 text-lg font-mono">${item.ticker}</td>
-                            <td class="p-4">
-                                <span class="px-3 py-1.5 rounded-md text-sm font-bold border ${color}">
-                                    ${item.analysisScore || 'N/A'} ${item.sentiment}
-                                </span>
-                            </td>
-                            <td class="p-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-24 bg-gray-700 rounded-full h-2.5">
-                                        <div class="${aiColor} h-2.5 rounded-full" style="width: ${item.aiScore || 0}%"></div>
-                                    </div>
-                                    <span class="font-mono font-bold">${item.aiScore || 'N/A'}</span>
-                                </div>
-                            </td>
-                            <td class="p-4 text-gray-400 text-sm font-mono">${item.date}</td>
-                            <td class="p-4 text-center">
-                                <button onclick="loadChart('${item.ticker}')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded-lg">
-                                    Toon Grafiek
-                                </button>
-                            </td>
-                        </tr>
-                    `;
+                    if (!item.error) knownData[item.ticker.toUpperCase()] = item;
                 });
-
-                document.getElementById('lastUpdate').innerText = `Laatste update: ${new Date().toLocaleString('nl-NL')}`;
+                renderTable(Object.values(knownData));
+                document.getElementById('lastUpdate').innerText = `Laatste bulk-update: ${new Date().toLocaleString('nl-NL')}`;
             } catch (e) {
-                console.error("Fout bij laden data:", e);
+                console.error("Fout bij laden data.json:", e);
+                document.getElementById('scoresTableBody').innerHTML = `<tr><td colspan="5" class="p-8 text-center text-red-400">Kon data.json niet laden. Zorg dat de GitHub Action succesvol heeft gedraaid.</td></tr>`;
             }
+        }
+
+        // Render de tabel
+        function renderTable(dataArray) {
+            const tbody = document.getElementById('scoresTableBody');
+            tbody.innerHTML = '';
+            
+            if (dataArray.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-gray-500">Geen data gevonden.</td></tr>`;
+                return;
+            }
+
+            dataArray.forEach(item => {
+                const isBullish = item.sentiment === 'Bullish';
+                const color = isBullish ? 'bg-green-900/50 text-green-400 border-green-700' : 'bg-red-900/50 text-red-400 border-red-700';
+                const aiScore = item.aiScore || 0;
+                const aiColor = aiScore >= 60 ? 'bg-green-500' : aiScore >= 40 ? 'bg-yellow-500' : 'bg-red-500';
+
+                tbody.innerHTML += `
+                    <tr class="border-b border-gray-700/50 hover:bg-gray-700/30 transition">
+                        <td class="p-4 font-bold text-blue-400 text-lg font-mono">${item.ticker}</td>
+                        <td class="p-4">
+                            <span class="px-3 py-1.5 rounded-md text-sm font-bold border ${color}">
+                                ${item.analysisScore || 'N/A'} ${item.sentiment || 'N/A'}
+                            </span>
+                        </td>
+                        <td class="p-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-24 bg-gray-700 rounded-full h-2.5">
+                                    <div class="${aiColor} h-2.5 rounded-full" style="width: ${aiScore}%"></div>
+                                </div>
+                                <span class="font-mono font-bold">${item.aiScore || 'N/A'}</span>
+                            </div>
+                        </td>
+                        <td class="p-4 text-gray-400 text-sm font-mono">${item.date || 'N/A'}</td>
+                        <td class="p-4 text-center">
+                            <button onclick="loadChart('${item.ticker}')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded-lg transition">
+                                Toon Grafiek
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Nieuwe tickers live toevoegen
+        async function addTickers() {
+            const input = document.getElementById('tickerInput').value;
+            const newTickers = input.split(',').map(t => t.trim().toUpperCase()).filter(t => t.length > 0);
+            const btn = document.getElementById('addBtn');
+
+            if (newTickers.length === 0) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<span class="loading-spinner"></span> Bezig...`;
+
+            for (const ticker of newTickers) {
+                if (knownData[ticker]) {
+                    loadChart(ticker); // Al bekend, direct tonen
+                    continue;
+                }
+
+                // Probeer live op te halen via een CORS proxy
+                try {
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://yrobot.us/chart/${ticker}`)}`;
+                    const response = await fetch(proxyUrl);
+                    const data = await response.json();
+                    
+                    if (data.contents) {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(data.contents, 'text/html');
+                        const textContent = doc.body.innerText;
+
+                        const aiMatch = textContent.match(/AI\s*Score\s*[:\-]?\s*([\d\.]+)/i);
+                        const sentimentMatch = textContent.match(/(\d{2,3})\s+(Bullish|Bearish|Neutral)/i);
+                        const dateMatch = textContent.match(/Analysis\s+([\d\/\s:]+)/i);
+
+                        const newItem = {
+                            ticker: ticker,
+                            aiScore: aiMatch ? parseFloat(aiMatch[1]).toFixed(0) : null,
+                            analysisScore: sentimentMatch ? sentimentMatch[1] : null,
+                            sentiment: sentimentMatch ? sentimentMatch[2] : 'Onbekend',
+                            date: dateMatch ? dateMatch[1].trim() : 'Live'
+                        };
+
+                        knownData[ticker] = newItem;
+                        renderTable(Object.values(knownData));
+                        loadChart(ticker);
+                    } else {
+                        throw new Error("Geen inhoud");
+                    }
+                } catch (e) {
+                    console.warn(`Live ophalen van ${ticker} mislukt. Toon alleen grafiek.`);
+                    knownData[ticker] = {
+                        ticker: ticker,
+                        aiScore: null,
+                        analysisScore: null,
+                        sentiment: 'Geblokkeerd',
+                        date: 'Live (Proxy faalde)'
+                    };
+                    renderTable(Object.values(knownData));
+                    loadChart(ticker);
+                }
+            }
+
+            document.getElementById('tickerInput').value = '';
+            btn.disabled = false;
+            btn.innerHTML = `<span>➕ Toevoegen & Analiseren</span>`;
         }
 
         window.onload = () => {
             loadChart('SMG');
             loadData();
-            setInterval(loadData, 300000); // Refresh elke 5 min
         };
     </script>
 </body>
