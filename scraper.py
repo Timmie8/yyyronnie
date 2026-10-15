@@ -3,8 +3,8 @@ import re
 import asyncio
 from playwright.async_api import async_playwright
 
-TICKERS =[ERIC, TXRH, QURE, PAG, IONS, SMG, QSR, HRMY, POST, PTCT, DECK, TRU, SAH]
- # Pas aan naar jouw tickers
+# ALLE 13 TICKERS - Kopiëren en plakken!
+TICKERS = ["ERIC", "TXRH", "QURE", "PAG", "IONS", "SMG", "QSR", "HRMY", "POST", "PTCT", "DECK", "TRU", "SAH"]
 
 async def scrape_ticker(ticker):
     async with async_playwright() as p:
@@ -13,11 +13,10 @@ async def scrape_ticker(ticker):
         
         try:
             await page.goto(f"https://yrobot.us/chart/{ticker}", timeout=30000)
-            await page.wait_for_timeout(5000)  # Wacht op JS rendering
+            await page.wait_for_timeout(5000)
             
             content = await page.inner_text("body")
             
-            # Extract scores met regex
             ai_match = re.search(r'AI\s*Score\s*[:\-]?\s*([\d\.]+)', content, re.IGNORECASE)
             sentiment_match = re.search(r'(\d{2,3})\s+(Bullish|Bearish|Neutral)', content, re.IGNORECASE)
             date_match = re.search(r'Analysis\s+([\d\/\s:]+)', content, re.IGNORECASE)
@@ -41,7 +40,7 @@ async def main():
         print(f"Scrappen: {ticker}")
         data = await scrape_ticker(ticker)
         results.append(data)
-        await asyncio.sleep(2)  # Respecteer de server
+        await asyncio.sleep(2)
     
     with open("data/data.json", "w") as f:
         json.dump(results, f, indent=2)
