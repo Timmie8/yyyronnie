@@ -1,1 +1,93 @@
-[]
+[
+  {
+    "ticker": "ERIC",
+    "aiScore": 57.0,
+    "analysisScore": 71,
+    "sentiment": "Bullish",
+    "date": "71"
+  },
+  {
+    "ticker": "TXRH",
+    "aiScore": 71.0,
+    "analysisScore": 48,
+    "sentiment": "Neutral",
+    "date": "51"
+  },
+  {
+    "ticker": "QURE",
+    "aiScore": 62.0,
+    "analysisScore": null,
+    "sentiment": "Onbekend",
+    "date": "91"
+  },
+  {
+    "ticker": "PAG",
+    "aiScore": 70.0,
+    "analysisScore": 32,
+    "sentiment": "Neutral",
+    "date": "96"
+  },
+  {
+    "ticker": "IONS",
+    "aiScore": 67.0,
+    "analysisScore": 84,
+    "sentiment": "Bullish",
+    "date": "84"
+  },
+  {
+    "ticker": "SMG",
+    "aiScore": 60.0,
+    "analysisScore": 72,
+    "sentiment": "Bullish",
+    "date": "72"
+  },
+  {
+    "ticker": "QSR",
+    "aiScore": 65.0,
+    "analysisScore": 44,
+    "sentiment": "Neutral",
+    "date": "87"
+  },
+  {
+    "ticker": "HRMY",
+    "aiScore": 76.0,
+    "analysisScore": 37,
+    "sentiment": "Neutral",
+    "date": "85"
+  },
+  {
+    "ticker": "POST",
+    "aiScore": 47.0,
+    "analysisScore": 55,
+    "sentiment": "Neutral",
+    "date": "67"
+  },
+  {
+    "ticker": "PTCT",
+    "aiScore": 72.0,
+    "analysisScore": 75,
+    "sentiment": "Bullish",
+    "date": "75"
+  },
+  {
+    "ticker": "DECK",
+    "aiScore": 65.0,
+    "analysisScore": 70,
+    "sentiment": "Bullish",
+    "date": "70"
+  },
+  {
+    "ticker": "TRU",
+    "aiScore": 63.0,
+    "analysisScore": 82,
+    "sentiment": "Bullish",
+    "date": "82"
+  },
+  {
+    "ticker": "SAH",
+    "aiScore": 66.0,
+    "analysisScore": 78,
+    "sentiment": "Bullish",
+    "date": "78"
+  }
+]
