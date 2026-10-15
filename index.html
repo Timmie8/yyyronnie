@@ -61,7 +61,7 @@
                             <th class="p-4">Ticker</th>
                             <th class="p-4">Analysis Score</th>
                             <th class="p-4">AI Score</th>
-                            <th class="p-4">Status</th> <!-- AANGEPAST -->
+                            <th class="p-4">Status</th>
                             <th class="p-4 text-center">Actie</th>
                         </tr>
                     </thead>
@@ -96,6 +96,19 @@
             });
         }
 
+        //  Slimme kleurfunctie voor balken (herbruikbaar)
+        function getBarColor(score) {
+            if (score >= 70) {
+                // Vloeiende overgang: lichtgroen (70) → donkergroen (100)
+                const lightness = 70 - ((score - 70) / 30) * 40;
+                return `hsl(142, 76%, ${lightness}%)`;
+            } else if (score >= 40) {
+                return 'hsl(45, 93%, 47%)'; // Geel
+            } else {
+                return 'hsl(0, 84%, 60%)'; // Rood
+            }
+        }
+
         async function loadData() {
             try {
                 const response = await fetch('./data/data.json?t=' + Date.now());
@@ -124,39 +137,47 @@
             dataArray.sort((a, b) => a.ticker.localeCompare(b.ticker));
 
             dataArray.forEach(item => {
-                let colorClass = 'bg-gray-700 text-gray-300 border-gray-600';
-                if (item.sentiment === 'Bullish') colorClass = 'bg-green-900/50 text-green-400 border-green-700';
-                else if (item.sentiment === 'Bearish') colorClass = 'bg-red-900/50 text-red-400 border-red-700';
+                // Sentiment badge kleur
+                let sentimentColor = 'bg-gray-700 text-gray-300 border-gray-600';
+                if (item.sentiment === 'Bullish') sentimentColor = 'bg-green-900/50 text-green-400 border-green-700';
+                else if (item.sentiment === 'Bearish') sentimentColor = 'bg-red-900/50 text-red-400 border-red-700';
 
-                let aiBarStyle = 'background-color: #4b5563;'; // Standaard grijs
-                let aiScoreVal = 0;
-
-                if (item.aiScore && !isNaN(item.aiScore)) {
-                    aiScoreVal = parseInt(item.aiScore);
-                    if (aiScoreVal >= 70) {
-                        // VLOEIENDE OVERGANG: Lichtgroen (70) naar Donkergroen (100)
-                        // HSL: Hue 142 (Groen), Saturation 76%
-                        // Lightness: 70% bij score 70, 30% bij score 100
-                        const lightness = 70 - ((aiScoreVal - 70) / 30) * 40;
-                        aiBarStyle = `background-color: hsl(142, 76%, ${lightness}%);`;
-                    } else if (aiScoreVal >= 40) {
-                        aiBarStyle = 'background-color: hsl(45, 93%, 47%);'; // Geel
-                    } else {
-                        aiBarStyle = 'background-color: hsl(0, 84%, 60%);'; // Rood
-                    }
+                // Analysis Score balk
+                let analysisBarStyle = 'background-color: #4b5563;';
+                let analysisScoreVal = 0;
+                if (item.analysisScore && !isNaN(item.analysisScore)) {
+                    analysisScoreVal = parseInt(item.analysisScore);
+                    analysisBarStyle = `background-color: ${getBarColor(analysisScoreVal)};`;
                 }
 
-                // Bepaal de status tekst
-                let statusText = item.date === 'Voeg toe aan scraper.py' ? '⏳ Wachten' : `✅ ${item.date || 'N/A'}`;
+                // AI Score balk
+                let aiBarStyle = 'background-color: #4b5563;';
+                let aiScoreVal = 0;
+                if (item.aiScore && !isNaN(item.aiScore)) {
+                    aiScoreVal = parseInt(item.aiScore);
+                    aiBarStyle = `background-color: ${getBarColor(aiScoreVal)};`;
+                }
+
+                // Status tekst
+                let statusText = item.date === 'Voeg toe aan scraper.py' ? ' Wachten' : `✅ ${item.date || 'N/A'}`;
 
                 tbody.innerHTML += `
                     <tr class="border-b border-gray-700/50 hover:bg-gray-700/30 transition">
                         <td class="p-4 font-bold text-blue-400 text-lg font-mono">${item.ticker}</td>
+                        
+                        <!-- Analysis Score met balk -->
                         <td class="p-4">
-                            <span class="px-3 py-1.5 rounded-md text-sm font-bold border ${colorClass}">
-                                ${item.analysisScore || 'N/A'} ${item.sentiment || 'N/A'}
-                            </span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-24 bg-gray-700 rounded-full h-2.5">
+                                    <div class="h-2.5 rounded-full transition-all duration-700" style="${analysisBarStyle} width: ${analysisScoreVal}%"></div>
+                                </div>
+                                <span class="px-2 py-1 rounded text-xs font-bold border ${sentimentColor}">
+                                    ${item.analysisScore || 'N/A'}
+                                </span>
+                            </div>
                         </td>
+                        
+                        <!-- AI Score met balk -->
                         <td class="p-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-24 bg-gray-700 rounded-full h-2.5">
@@ -165,7 +186,11 @@
                                 <span class="font-mono font-bold">${item.aiScore || 'N/A'}</span>
                             </div>
                         </td>
+                        
+                        <!-- Status -->
                         <td class="p-4 text-gray-400 text-sm font-mono">${statusText}</td>
+                        
+                        <!-- Actie -->
                         <td class="p-4 text-center">
                             <button onclick="loadChart('${item.ticker}')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded-lg transition">
                                 Toon Grafiek
