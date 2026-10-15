@@ -1,5 +1,19 @@
 [
   {
+    "ticker": "cx",
+    "aiScore": 50.0,
+    "analysisScore": 81,
+    "sentiment": "Bullish",
+    "date": "81"
+  },
+  {
+    "ticker": "TNL",
+    "aiScore": 66.0,
+    "analysisScore": 79,
+    "sentiment": "Bullish",
+    "date": "79"
+  },
+  {
     "ticker": "AA",
     "aiScore": 80.0,
     "analysisScore": 66,
