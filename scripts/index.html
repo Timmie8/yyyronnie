@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>YRobot Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #tradingview_chart { height: 550px; width: 100%; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-2 text-blue-400">📈 YRobot Live Dashboard</h1>
+        <p class="text-gray-400 mb-6 text-sm">
+            Data automatisch bijgewerkt via GitHub Actions. 
+            <span id="lastUpdate" class="text-green-400"></span>
+        </p>
+
+        <!-- Scores Tabel -->
+        <div class="bg-gray-800 rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-700">
+            <div class="p-4 border-b border-gray-700">
+                <h2 class="text-lg font-semibold">Live YRobot Scores</h2>
+            </div>
+            <table class="w-full text-left">
+                <thead class="bg-gray-700/50 text-gray-300 text-sm uppercase">
+                    <tr>
+                        <th class="p-4">Ticker</th>
+                        <th class="p-4">Analysis Score</th>
+                        <th class="p-4">AI Score</th>
+                        <th class="p-4">Datum</th>
+                        <th class="p-4 text-center">Actie</th>
+                    </tr>
+                </thead>
+                <tbody id="scoresTableBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Grafiek -->
+        <div class="bg-gray-800 p-1 rounded-xl shadow-lg border border-gray-700">
+            <h2 class="text-xl font-bold text-blue-400 p-4" id="chartTitle">Grafiek: SMG</h2>
+            <div id="tradingview_chart"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script>
+        let currentWidget = null;
+
+        function loadChart(ticker) {
+            document.getElementById('chartTitle').innerText = `Grafiek: ${ticker}`;
+            if (currentWidget) document.getElementById('tradingview_chart').innerHTML = '';
+            currentWidget = new TradingView.widget({
+                "autosize": true, "symbol": ticker, "interval": "D",
+                "timezone": "Europe/Amsterdam", "theme": "dark", "style": "1",
+                "locale": "nl", "container_id": "tradingview_chart"
+            });
+        }
+
+        async function loadData() {
+            try {
+                // Haal het JSON-bestand op uit je eigen repo
+                const response = await fetch('./data/data.json?t=' + Date.now());
+                const data = await response.json();
+                const tbody = document.getElementById('scoresTableBody');
+                tbody.innerHTML = '';
+
+                data.forEach(item => {
+                    if (item.error) {
+                        tbody.innerHTML += `<tr><td colspan="5" class="p-4 text-red-400">${item.ticker}: ${item.error}</td></tr>`;
+                        return;
+                    }
+                    
+                    const isBullish = item.sentiment === 'Bullish';
+                    const color = isBullish ? 'bg-green-900/50 text-green-400 border-green-700' : 'bg-red-900/50 text-red-400 border-red-700';
+                    const aiColor = item.aiScore >= 60 ? 'bg-green-500' : item.aiScore >= 40 ? 'bg-yellow-500' : 'bg-red-500';
+
+                    tbody.innerHTML += `
+                        <tr class="border-b border-gray-700/50 hover:bg-gray-700/30">
+                            <td class="p-4 font-bold text-blue-400 text-lg font-mono">${item.ticker}</td>
+                            <td class="p-4">
+                                <span class="px-3 py-1.5 rounded-md text-sm font-bold border ${color}">
+                                    ${item.analysisScore || 'N/A'} ${item.sentiment}
+                                </span>
+                            </td>
+                            <td class="p-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-24 bg-gray-700 rounded-full h-2.5">
+                                        <div class="${aiColor} h-2.5 rounded-full" style="width: ${item.aiScore || 0}%"></div>
+                                    </div>
+                                    <span class="font-mono font-bold">${item.aiScore || 'N/A'}</span>
+                                </div>
+                            </td>
+                            <td class="p-4 text-gray-400 text-sm font-mono">${item.date}</td>
+                            <td class="p-4 text-center">
+                                <button onclick="loadChart('${item.ticker}')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded-lg">
+                                    Toon Grafiek
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                document.getElementById('lastUpdate').innerText = `Laatste update: ${new Date().toLocaleString('nl-NL')}`;
+            } catch (e) {
+                console.error("Fout bij laden data:", e);
+            }
+        }
+
+        window.onload = () => {
+            loadChart('SMG');
+            loadData();
+            setInterval(loadData, 300000); // Refresh elke 5 min
+        };
+    </script>
+</body>
+</html>
