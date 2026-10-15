@@ -8,10 +8,10 @@
   },
   {
     "ticker": "GXO",
-    "aiScore": 62.0,
-    "analysisScore": 79,
-    "sentiment": "Bullish",
-    "date": "79"
+    "aiScore": 58.0,
+    "analysisScore": 52,
+    "sentiment": "Neutral",
+    "date": "31"
   },
   {
     "ticker": "AZN",
@@ -22,10 +22,10 @@
   },
   {
     "ticker": "ANAB",
-    "aiScore": 41.0,
-    "analysisScore": 33,
+    "aiScore": 35.0,
+    "analysisScore": 44,
     "sentiment": "Neutral",
-    "date": "68"
+    "date": "42"
   },
   {
     "ticker": "ARGX",
@@ -36,17 +36,17 @@
   },
   {
     "ticker": "AXSM",
-    "aiScore": 79.0,
-    "analysisScore": null,
-    "sentiment": "Onbekend",
-    "date": "40"
+    "aiScore": 77.0,
+    "analysisScore": 75,
+    "sentiment": "Bullish",
+    "date": "75"
   },
   {
     "ticker": "ANGO",
-    "aiScore": 63.0,
+    "aiScore": 58.0,
     "analysisScore": null,
     "sentiment": "Onbekend",
-    "date": "60"
+    "date": "42"
   },
   {
     "ticker": "PHAT",
@@ -71,23 +71,23 @@
   },
   {
     "ticker": "KVYO",
-    "aiScore": 38.0,
-    "analysisScore": 52,
+    "aiScore": 37.0,
+    "analysisScore": 59,
     "sentiment": "Neutral",
     "date": "05/28/26 21:28"
   },
   {
     "ticker": "PLAY",
-    "aiScore": 54.0,
-    "analysisScore": 47,
+    "aiScore": 48.0,
+    "analysisScore": 58,
     "sentiment": "Neutral",
-    "date": "60"
+    "date": "45"
   },
   {
     "ticker": "BOOT",
-    "aiScore": 81.0,
-    "analysisScore": 78,
-    "sentiment": "Bullish",
-    "date": "46"
+    "aiScore": 74.0,
+    "analysisScore": 41,
+    "sentiment": "Neutral",
+    "date": "47"
   }
 ]
