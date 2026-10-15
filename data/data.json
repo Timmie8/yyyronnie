@@ -1,5 +1,19 @@
 [
   {
+    "ticker": "AA",
+    "aiScore": 80.0,
+    "analysisScore": 66,
+    "sentiment": "Bearish",
+    "date": "86"
+  },
+  {
+    "ticker": "AAPL",
+    "aiScore": 44.0,
+    "analysisScore": 16,
+    "sentiment": "Bearish",
+    "date": "16"
+  },
+  {
     "ticker": "ERIC",
     "aiScore": 57.0,
     "analysisScore": 71,
