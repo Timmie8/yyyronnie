@@ -43,7 +43,7 @@
     "ticker": "PMI",
     "aiScore": 12.0,
     "technicalScore": 202.0,
-    "analysisScore": 68,
+    "analysisScore": 64,
     "sentiment": "Neutral",
     "date": "05/28/26 22:15"
   },
@@ -57,25 +57,25 @@
   },
   {
     "ticker": "IRD",
-    "aiScore": 50.0,
+    "aiScore": 54.0,
     "technicalScore": 5.0,
-    "analysisScore": 37,
+    "analysisScore": 34,
     "sentiment": "Neutral",
-    "date": "30"
+    "date": "38"
   },
   {
     "ticker": "CPRI",
-    "aiScore": 55.0,
+    "aiScore": 56.0,
     "technicalScore": 34.0,
-    "analysisScore": 22,
-    "sentiment": "Bearish",
-    "date": "22"
+    "analysisScore": 66,
+    "sentiment": "Neutral",
+    "date": "8"
   },
   {
     "ticker": "LADR",
     "aiScore": 57.0,
     "technicalScore": 36.0,
-    "analysisScore": 45,
+    "analysisScore": 56,
     "sentiment": "Neutral",
     "date": "47"
   },
@@ -89,11 +89,11 @@
   },
   {
     "ticker": "FOX",
-    "aiScore": 62.0,
+    "aiScore": 65.0,
     "technicalScore": 34.0,
     "analysisScore": 52,
     "sentiment": "Neutral",
-    "date": "35"
+    "date": "41"
   },
   {
     "ticker": "SMTC",
@@ -121,19 +121,19 @@
   },
   {
     "ticker": "AA",
-    "aiScore": 69.0,
+    "aiScore": 73.0,
     "technicalScore": 49.0,
-    "analysisScore": 81,
-    "sentiment": "Bullish",
-    "date": "81"
+    "analysisScore": 31,
+    "sentiment": "Neutral",
+    "date": "88"
   },
   {
     "ticker": "ELAN",
-    "aiScore": 47.0,
+    "aiScore": 48.0,
     "technicalScore": 39.0,
-    "analysisScore": 22,
+    "analysisScore": 27,
     "sentiment": "Bearish",
-    "date": "22"
+    "date": "27"
   },
   {
     "ticker": "SPGI",
@@ -153,9 +153,9 @@
   },
   {
     "ticker": "CON",
-    "aiScore": 61.0,
+    "aiScore": 66.0,
     "technicalScore": 202.0,
-    "analysisScore": 66,
+    "analysisScore": 72,
     "sentiment": "Bullish",
     "date": "05/29/26 00:17"
   },
@@ -169,18 +169,18 @@
   },
   {
     "ticker": "TWLO",
-    "aiScore": 76.0,
+    "aiScore": 77.0,
     "technicalScore": 48.0,
-    "analysisScore": 51,
-    "sentiment": "Neutral",
-    "date": "8"
+    "analysisScore": 30,
+    "sentiment": "Bearish",
+    "date": "30"
   },
   {
     "ticker": "HNGE",
-    "aiScore": 54.0,
+    "aiScore": 60.0,
     "technicalScore": 202.0,
-    "analysisScore": null,
-    "sentiment": "Onbekend",
+    "analysisScore": 54,
+    "sentiment": "Neutral",
     "date": "05/29/26 00:10"
   }
 ]
