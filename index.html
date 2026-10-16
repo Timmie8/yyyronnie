@@ -11,12 +11,9 @@
             border: 3px solid rgba(255,255,255,0.1);
             border-left-color: #3b82f6;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             animation: spin 1s linear infinite;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 8px;
+            display: inline-block; vertical-align: middle; margin-right: 8px;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
@@ -24,31 +21,22 @@
 <body class="bg-gray-900 text-gray-100 font-sans p-4 md:p-8">
     <div class="max-w-6xl mx-auto">
         <h1 class="text-3xl font-bold mb-2 text-blue-400">📈 YRobot Live Dashboard</h1>
-        <p class="text-gray-400 mb-6 text-sm">
-            Data automatisch bijgewerkt via GitHub Actions. 
-            <span id="lastUpdate" class="text-green-400"></span>
-        </p>
+        <p class="text-gray-400 mb-6 text-sm">Data automatisch bijgewerkt via GitHub Actions. <span id="lastUpdate" class="text-green-400"></span></p>
 
-        <!-- 1. INVOER SECTIE -->
+        <!-- INVOER SECTIE -->
         <div class="bg-gray-800 p-5 rounded-xl shadow-lg mb-6 border border-gray-700">
             <label class="block text-sm font-medium mb-2 text-gray-300">Voeg nieuwe tickers toe aan de monitor:</label>
             <div class="flex flex-col sm:flex-row gap-3">
                 <input type="text" id="tickerInput" placeholder="Bijv. AMD, META, PLTR" 
-                       class="flex-1 bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition font-mono uppercase">
+                       class="flex-1 bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition font-mono uppercase">
                 <button onclick="addTickers()" id="addBtn"
-                        class="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition flex items-center justify-center gap-2">
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition flex items-center justify-center gap-2">
                     <span>➕ Toevoegen & Grafiek Laden</span>
                 </button>
             </div>
-            <div class="mt-3 p-3 rounded border border-blue-700/50 bg-blue-900/20 flex gap-3">
-                <span class="text-blue-400 text-lg">💡</span>
-                <p class="text-xs text-blue-200">
-                    <strong>Werking:</strong> De grafiek wordt direct geladen. Voor de officiële YRobot AI-score: voeg de ticker toe aan <code class="bg-blue-950 px-1 rounded">.github/workflows/scrape.yml</code> en start de GitHub Action.
-                </p>
-            </div>
         </div>
 
-        <!-- 2. Scores Tabel -->
+        <!-- SCORES TABEL -->
         <div class="bg-gray-800 rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-700">
             <div class="p-4 border-b border-gray-700 flex justify-between items-center">
                 <h2 class="text-lg font-semibold">Live Scores Overzicht</h2>
@@ -72,14 +60,13 @@
             </div>
         </div>
 
-        <!-- 3. Grafiek Sectie -->
+        <!-- GRAFIEK SECTIE -->
         <div class="bg-gray-800 p-1 rounded-xl shadow-lg border border-gray-700">
             <h2 class="text-xl font-bold text-blue-400 p-4" id="chartTitle">Grafiek: SMG</h2>
             <div id="tradingview_chart"></div>
         </div>
     </div>
 
-    <!-- TradingView Script -->
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
         let currentWidget = null;
@@ -91,12 +78,11 @@
             currentWidget = new TradingView.widget({
                 "autosize": true, "symbol": ticker, "interval": "D",
                 "timezone": "Europe/Amsterdam", "theme": "dark", "style": "1",
-                "locale": "nl", "container_id": "tradingview_chart",
-                "hide_side_toolbar": false
+                "locale": "nl", "container_id": "tradingview_chart"
             });
         }
 
-        //  Slimme kleurfunctie voor balken (herbruikbaar)
+        // Slimme kleurfunctie voor alle balken
         function getBarColor(score) {
             if (score >= 70) {
                 // Vloeiende overgang: lichtgroen (70) → donkergroen (100)
@@ -109,86 +95,86 @@
             }
         }
 
+        // Herbruikbare balk functie
+        function createBarHTML(score) {
+            let scoreVal = 0;
+            let barStyle = 'background-color: #4b5563;';
+            if (score && !isNaN(score)) {
+                scoreVal = parseInt(score);
+                barStyle = `background-color: ${getBarColor(scoreVal)};`;
+            }
+            return `
+                <div class="flex items-center gap-3">
+                    <div class="w-24 bg-gray-700 rounded-full h-2.5">
+                        <div class="h-2.5 rounded-full transition-all duration-700" style="${barStyle} width: ${scoreVal}%"></div>
+                    </div>
+                    <span class="font-mono font-bold text-sm">${score || 'N/A'}</span>
+                </div>
+            `;
+        }
+
         async function loadData() {
             try {
                 const response = await fetch('./data/data.json?t=' + Date.now());
                 const data = await response.json();
                 knownData = {};
-                data.forEach(item => {
-                    if (!item.error) knownData[item.ticker.toUpperCase()] = item;
-                });
+                data.forEach(item => { if (!item.error) knownData[item.ticker.toUpperCase()] = item; });
                 renderTable(Object.values(knownData));
-                document.getElementById('lastUpdate').innerText = `Laatste bulk-update: ${new Date().toLocaleString('nl-NL')}`;
+                document.getElementById('lastUpdate').innerText = `Laatste update: ${new Date().toLocaleString('nl-NL')}`;
             } catch (e) {
-                console.error("Fout bij laden data.json:", e);
-                document.getElementById('scoresTableBody').innerHTML = `<tr><td colspan="5" class="p-8 text-center text-red-400">Kon data.json niet laden. Zorg dat de GitHub Action succesvol heeft gedraaid.</td></tr>`;
+                document.getElementById('scoresTableBody').innerHTML = `<tr><td colspan="5" class="p-8 text-center text-red-400">Fout bij laden data.</td></tr>`;
             }
         }
 
         function renderTable(dataArray) {
             const tbody = document.getElementById('scoresTableBody');
             tbody.innerHTML = '';
-            
             if (dataArray.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-gray-500">Geen data gevonden.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-gray-500">Geen data.</td></tr>`;
                 return;
             }
-
             dataArray.sort((a, b) => a.ticker.localeCompare(b.ticker));
 
             dataArray.forEach(item => {
-                // Sentiment badge kleur
+                // Sentiment badge kleur voor Analysis Score
                 let sentimentColor = 'bg-gray-700 text-gray-300 border-gray-600';
                 if (item.sentiment === 'Bullish') sentimentColor = 'bg-green-900/50 text-green-400 border-green-700';
                 else if (item.sentiment === 'Bearish') sentimentColor = 'bg-red-900/50 text-red-400 border-red-700';
 
-                // Analysis Score balk
-                let analysisBarStyle = 'background-color: #4b5563;';
-                let analysisScoreVal = 0;
-                if (item.analysisScore && !isNaN(item.analysisScore)) {
-                    analysisScoreVal = parseInt(item.analysisScore);
-                    analysisBarStyle = `background-color: ${getBarColor(analysisScoreVal)};`;
-                }
-
-                // AI Score balk
-                let aiBarStyle = 'background-color: #4b5563;';
-                let aiScoreVal = 0;
-                if (item.aiScore && !isNaN(item.aiScore)) {
-                    aiScoreVal = parseInt(item.aiScore);
-                    aiBarStyle = `background-color: ${getBarColor(aiScoreVal)};`;
-                }
-
-                // Status tekst
-                let statusText = item.date === 'Voeg toe aan scraper.py' ? ' Wachten' : `✅ ${item.date || 'N/A'}`;
+                // Technical Score (Status) - bepaal kleur voor het getal
+                let techScoreVal = item.technicalScore ? parseInt(item.technicalScore) : 0;
+                let techTextColor = 'text-gray-300';
+                if (techScoreVal >= 70) techTextColor = 'text-green-400';
+                else if (techScoreVal >= 40) techTextColor = 'text-yellow-400';
+                else if (techScoreVal > 0) techTextColor = 'text-red-400';
 
                 tbody.innerHTML += `
                     <tr class="border-b border-gray-700/50 hover:bg-gray-700/30 transition">
                         <td class="p-4 font-bold text-blue-400 text-lg font-mono">${item.ticker}</td>
                         
-                        <!-- Analysis Score met balk -->
+                        <!-- Analysis Score -->
                         <td class="p-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-24 bg-gray-700 rounded-full h-2.5">
-                                    <div class="h-2.5 rounded-full transition-all duration-700" style="${analysisBarStyle} width: ${analysisScoreVal}%"></div>
-                                </div>
-                                <span class="px-2 py-1 rounded text-xs font-bold border ${sentimentColor}">
-                                    ${item.analysisScore || 'N/A'}
+                            <div class="flex flex-col gap-2">
+                                ${createBarHTML(item.analysisScore)}
+                                <span class="px-2 py-0.5 rounded text-xs font-bold border ${sentimentColor} w-fit">
+                                    ${item.sentiment || 'N/A'}
                                 </span>
                             </div>
                         </td>
                         
-                        <!-- AI Score met balk -->
+                        <!-- AI Score -->
+                        <td class="p-4">${createBarHTML(item.aiScore)}</td>
+                        
+                        <!-- Status / Technical Score met kleur -->
                         <td class="p-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-24 bg-gray-700 rounded-full h-2.5">
-                                    <div class="h-2.5 rounded-full transition-all duration-700" style="${aiBarStyle} width: ${aiScoreVal}%"></div>
+                                    <div class="h-2.5 rounded-full transition-all duration-700" 
+                                         style="background-color: ${getBarColor(techScoreVal)}; width: ${techScoreVal}%"></div>
                                 </div>
-                                <span class="font-mono font-bold">${item.aiScore || 'N/A'}</span>
+                                <span class="font-mono font-bold text-sm ${techTextColor}">${item.technicalScore || 'N/A'}</span>
                             </div>
                         </td>
-                        
-                        <!-- Status -->
-                        <td class="p-4 text-gray-400 text-sm font-mono">${statusText}</td>
                         
                         <!-- Actie -->
                         <td class="p-4 text-center">
@@ -204,37 +190,17 @@
         async function addTickers() {
             const input = document.getElementById('tickerInput').value;
             const newTickers = input.split(',').map(t => t.trim().toUpperCase()).filter(t => t.length > 0);
-            const btn = document.getElementById('addBtn');
-
             if (newTickers.length === 0) return;
-
-            btn.disabled = true;
-            btn.innerHTML = `<span class="loading-spinner"></span> Bezig...`;
-
             for (const ticker of newTickers) {
-                knownData[ticker] = {
-                    ticker: ticker,
-                    aiScore: 'Wacht',
-                    analysisScore: 'Wacht',
-                    sentiment: '⏳ GitHub Action',
-                    date: 'Voeg toe aan scraper.py'
-                };
+                knownData[ticker] = { ticker, aiScore: null, technicalScore: null, analysisScore: null, sentiment: 'Wachten' };
                 loadChart(ticker);
             }
-            
             renderTable(Object.values(knownData));
             document.getElementById('tickerInput').value = '';
-            btn.disabled = false;
-            btn.innerHTML = `<span>➕ Toevoegen & Grafiek Laden</span>`;
-            
-            alert(`✅ Grafiek geladen voor: ${newTickers.join(', ')}\n\n📊 Voor de officiële YRobot AI-score:\n1. Open '.github/workflows/scrape.yml'\n2. Voeg '${newTickers.join(', ')}' toe aan de TICKERS lijst.\n3. Ga naar 'Actions' en klik op 'Run workflow'.`);
+            alert(`Grafiek geladen! Voeg de tickers toe aan .github/workflows/scrape.yml en draai de Action voor de scores.`);
         }
 
-        window.onload = () => {
-            loadChart('SMG');
-            loadData();
-            setInterval(loadData, 300000); 
-        };
+        window.onload = () => { loadChart('SMG'); loadData(); setInterval(loadData, 300000); };
     </script>
 </body>
 </html>
