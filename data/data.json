@@ -1,93 +1,106 @@
 [
   {
-    "ticker": "LQDA",
-    "aiScore": 52.0,
-    "analysisScore": 36,
-    "sentiment": "Neutral",
-    "date": "57"
-  },
-  {
-    "ticker": "GXO",
-    "aiScore": 58.0,
-    "analysisScore": 52,
-    "sentiment": "Neutral",
-    "date": "31"
-  },
-  {
-    "ticker": "AZN",
-    "aiScore": 64.0,
-    "analysisScore": 59,
-    "sentiment": "Neutral",
-    "date": "7"
-  },
-  {
-    "ticker": "ANAB",
-    "aiScore": 35.0,
-    "analysisScore": 44,
-    "sentiment": "Neutral",
-    "date": "42"
-  },
-  {
-    "ticker": "ARGX",
-    "aiScore": 85.0,
-    "analysisScore": 36,
-    "sentiment": "Neutral",
-    "date": "62"
-  },
-  {
-    "ticker": "AXSM",
-    "aiScore": 77.0,
-    "analysisScore": 75,
+    "ticker": "ERIC",
+    "aiScore": 31.0,
+    "technicalScore": 62.0,
+    "analysisScore": 10,
     "sentiment": "Bullish",
-    "date": "75"
+    "date": "2"
   },
   {
-    "ticker": "ANGO",
-    "aiScore": 58.0,
+    "ticker": "TXRH",
+    "aiScore": 66.0,
+    "technicalScore": 38.0,
+    "analysisScore": 55,
+    "sentiment": "Neutral",
+    "date": "40"
+  },
+  {
+    "ticker": "QURE",
+    "aiScore": 50.0,
+    "technicalScore": 54.0,
     "analysisScore": null,
     "sentiment": "Onbekend",
-    "date": "42"
+    "date": "59"
   },
   {
-    "ticker": "PHAT",
-    "aiScore": 40.0,
-    "analysisScore": 49,
+    "ticker": "PAG",
+    "aiScore": 63.0,
+    "technicalScore": 40.0,
+    "analysisScore": 21,
+    "sentiment": "Bearish",
+    "date": "21"
+  },
+  {
+    "ticker": "IONS",
+    "aiScore": 60.0,
+    "technicalScore": 49.0,
+    "analysisScore": 80,
+    "sentiment": "Bullish",
+    "date": "80"
+  },
+  {
+    "ticker": "SMG",
+    "aiScore": 55.0,
+    "technicalScore": 35.0,
+    "analysisScore": 57,
+    "sentiment": "Neutral",
+    "date": "35"
+  },
+  {
+    "ticker": "QSR",
+    "aiScore": 57.0,
+    "technicalScore": 41.0,
+    "analysisScore": 59,
+    "sentiment": "Neutral",
+    "date": "32"
+  },
+  {
+    "ticker": "HRMY",
+    "aiScore": 74.0,
+    "technicalScore": 37.0,
+    "analysisScore": 42,
+    "sentiment": "Neutral",
+    "date": "32"
+  },
+  {
+    "ticker": "POST",
+    "aiScore": 47.0,
+    "technicalScore": 46.0,
+    "analysisScore": 54,
     "sentiment": "Neutral",
     "date": "67"
   },
   {
-    "ticker": "MNDY",
-    "aiScore": 42.0,
-    "analysisScore": 60,
-    "sentiment": "Neutral",
-    "date": "12"
+    "ticker": "PTCT",
+    "aiScore": 69.0,
+    "technicalScore": 45.0,
+    "analysisScore": 71,
+    "sentiment": "Bullish",
+    "date": "71"
   },
   {
-    "ticker": "MBC",
-    "aiScore": 63.0,
-    "analysisScore": 44,
-    "sentiment": "Neutral",
-    "date": "05/28/26 21:23"
+    "ticker": "DECK",
+    "aiScore": 57.0,
+    "technicalScore": 20.0,
+    "analysisScore": 23,
+    "sentiment": "Bearish",
+    "date": "23"
   },
   {
-    "ticker": "KVYO",
-    "aiScore": 37.0,
-    "analysisScore": 59,
+    "ticker": "TRU",
+    "aiScore": 50.0,
+    "technicalScore": 41.0,
+    "analysisScore": 61,
     "sentiment": "Neutral",
-    "date": "05/28/26 21:28"
+    "date": "44"
   },
   {
-    "ticker": "PLAY",
-    "aiScore": 48.0,
-    "analysisScore": 58,
+    "ticker": "SAH",
+    "aiScore": 56.0,
+    "technicalScore": 35.0,
+    "analysisScore": 45,
     "sentiment": "Neutral",
-    "date": "45"
-  },
-  {
-    "ticker": "BOOT",
-    "aiScore": 74.0,
-    "analysisScore": 41,
-    "sentiment": "Neutral",
-    "date": "47"
+    "date": "43"
   }
 ]
