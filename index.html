@@ -23,7 +23,6 @@
         <h1 class="text-3xl font-bold mb-2 text-blue-400">📈 YRobot Live Dashboard</h1>
         <p class="text-gray-400 mb-6 text-sm">Data automatisch bijgewerkt via GitHub Actions. <span id="lastUpdate" class="text-green-400"></span></p>
 
-        <!-- INVOER SECTIE -->
         <div class="bg-gray-800 p-5 rounded-xl shadow-lg mb-6 border border-gray-700">
             <label class="block text-sm font-medium mb-2 text-gray-300">Voeg nieuwe tickers toe aan de monitor:</label>
             <div class="flex flex-col sm:flex-row gap-3">
@@ -36,7 +35,6 @@
             </div>
         </div>
 
-        <!-- SCORES TABEL -->
         <div class="bg-gray-800 rounded-xl shadow-lg mb-6 overflow-hidden border border-gray-700">
             <div class="p-4 border-b border-gray-700 flex justify-between items-center">
                 <h2 class="text-lg font-semibold">Live Scores Overzicht</h2>
@@ -60,7 +58,6 @@
             </div>
         </div>
 
-        <!-- GRAFIEK SECTIE -->
         <div class="bg-gray-800 p-1 rounded-xl shadow-lg border border-gray-700">
             <h2 class="text-xl font-bold text-blue-400 p-4" id="chartTitle">Grafiek: SMG</h2>
             <div id="tradingview_chart"></div>
@@ -82,20 +79,17 @@
             });
         }
 
-        // Slimme kleurfunctie voor alle balken
         function getBarColor(score) {
             if (score >= 70) {
-                // Vloeiende overgang: lichtgroen (70) → donkergroen (100)
                 const lightness = 70 - ((score - 70) / 30) * 40;
                 return `hsl(142, 76%, ${lightness}%)`;
             } else if (score >= 40) {
-                return 'hsl(45, 93%, 47%)'; // Geel
+                return 'hsl(45, 93%, 47%)';
             } else {
-                return 'hsl(0, 84%, 60%)'; // Rood
+                return 'hsl(0, 84%, 60%)';
             }
         }
 
-        // Herbruikbare balk functie
         function createBarHTML(score) {
             let scoreVal = 0;
             let barStyle = 'background-color: #4b5563;';
@@ -118,7 +112,15 @@
                 const response = await fetch('./data/data.json?t=' + Date.now());
                 const data = await response.json();
                 knownData = {};
-                data.forEach(item => { if (!item.error) knownData[item.ticker.toUpperCase()] = item; });
+                data.forEach(item => { 
+                    if (!item.error) {
+                        // FALLBACK: Als technicalScore ontbreekt, gebruik analysisScore
+                        if (!item.technicalScore && item.analysisScore) {
+                            item.technicalScore = item.analysisScore;
+                        }
+                        knownData[item.ticker.toUpperCase()] = item;
+                    }
+                });
                 renderTable(Object.values(knownData));
                 document.getElementById('lastUpdate').innerText = `Laatste update: ${new Date().toLocaleString('nl-NL')}`;
             } catch (e) {
@@ -136,13 +138,13 @@
             dataArray.sort((a, b) => a.ticker.localeCompare(b.ticker));
 
             dataArray.forEach(item => {
-                // Sentiment badge kleur voor Analysis Score
                 let sentimentColor = 'bg-gray-700 text-gray-300 border-gray-600';
                 if (item.sentiment === 'Bullish') sentimentColor = 'bg-green-900/50 text-green-400 border-green-700';
                 else if (item.sentiment === 'Bearish') sentimentColor = 'bg-red-900/50 text-red-400 border-red-700';
 
-                // Technical Score (Status) - bepaal kleur voor het getal
-                let techScoreVal = item.technicalScore ? parseInt(item.technicalScore) : 0;
+                // Technical Score met fallback
+                let techScoreVal = item.technicalScore ? parseInt(item.technicalScore) : (item.analysisScore ? parseInt(item.analysisScore) : 0);
+                let techDisplay = item.technicalScore || item.analysisScore || 'N/A';
                 let techTextColor = 'text-gray-300';
                 if (techScoreVal >= 70) techTextColor = 'text-green-400';
                 else if (techScoreVal >= 40) techTextColor = 'text-yellow-400';
@@ -152,7 +154,6 @@
                     <tr class="border-b border-gray-700/50 hover:bg-gray-700/30 transition">
                         <td class="p-4 font-bold text-blue-400 text-lg font-mono">${item.ticker}</td>
                         
-                        <!-- Analysis Score -->
                         <td class="p-4">
                             <div class="flex flex-col gap-2">
                                 ${createBarHTML(item.analysisScore)}
@@ -162,21 +163,18 @@
                             </div>
                         </td>
                         
-                        <!-- AI Score -->
                         <td class="p-4">${createBarHTML(item.aiScore)}</td>
                         
-                        <!-- Status / Technical Score met kleur -->
                         <td class="p-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-24 bg-gray-700 rounded-full h-2.5">
                                     <div class="h-2.5 rounded-full transition-all duration-700" 
                                          style="background-color: ${getBarColor(techScoreVal)}; width: ${techScoreVal}%"></div>
                                 </div>
-                                <span class="font-mono font-bold text-sm ${techTextColor}">${item.technicalScore || 'N/A'}</span>
+                                <span class="font-mono font-bold text-sm ${techTextColor}">${techDisplay}</span>
                             </div>
                         </td>
                         
-                        <!-- Actie -->
                         <td class="p-4 text-center">
                             <button onclick="loadChart('${item.ticker}')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded-lg transition">
                                 Toon Grafiek
@@ -197,7 +195,7 @@
             }
             renderTable(Object.values(knownData));
             document.getElementById('tickerInput').value = '';
-            alert(`Grafiek geladen! Voeg de tickers toe aan .github/workflows/scrape.yml en draai de Action voor de scores.`);
+            alert(`Grafiek geladen! Voeg de tickers toe aan .github/workflows/scrape.yml en draai de Action.`);
         }
 
         window.onload = () => { loadChart('SMG'); loadData(); setInterval(loadData, 300000); };
