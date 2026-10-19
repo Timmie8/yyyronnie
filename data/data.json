@@ -11,9 +11,9 @@
     "ticker": "IRTC",
     "aiScore": 63.0,
     "technicalScore": 36.0,
-    "analysisScore": 46,
+    "analysisScore": 48,
     "sentiment": "Neutral",
-    "date": "55"
+    "date": "49"
   },
   {
     "ticker": "FMX",
@@ -25,11 +25,11 @@
   },
   {
     "ticker": "GEF",
-    "aiScore": 40.0,
+    "aiScore": 41.0,
     "technicalScore": 53.0,
-    "analysisScore": 52,
-    "sentiment": "Neutral",
-    "date": "61"
+    "analysisScore": 82,
+    "sentiment": "Bullish",
+    "date": "82"
   },
   {
     "ticker": "CAVA",
@@ -43,7 +43,7 @@
     "ticker": "PMI",
     "aiScore": 12.0,
     "technicalScore": 202.0,
-    "analysisScore": 64,
+    "analysisScore": 69,
     "sentiment": "Neutral",
     "date": "05/28/26 22:15"
   },
@@ -59,9 +59,9 @@
     "ticker": "IRD",
     "aiScore": 54.0,
     "technicalScore": 10.0,
-    "analysisScore": 34,
+    "analysisScore": 33,
     "sentiment": "Neutral",
-    "date": "38"
+    "date": "35"
   },
   {
     "ticker": "CPRI",
@@ -99,9 +99,9 @@
     "ticker": "SMTC",
     "aiScore": 91.0,
     "technicalScore": 41.0,
-    "analysisScore": 34,
-    "sentiment": "Neutral",
-    "date": "38"
+    "analysisScore": 22,
+    "sentiment": "Bearish",
+    "date": "22"
   },
   {
     "ticker": "PRAX",
@@ -121,11 +121,11 @@
   },
   {
     "ticker": "AA",
-    "aiScore": 70.0,
+    "aiScore": 69.0,
     "technicalScore": 48.0,
-    "analysisScore": 38,
-    "sentiment": "Neutral",
-    "date": "86"
+    "analysisScore": 82,
+    "sentiment": "Bullish",
+    "date": "82"
   },
   {
     "ticker": "ELAN",
@@ -153,27 +153,27 @@
   },
   {
     "ticker": "CON",
-    "aiScore": 66.0,
+    "aiScore": 69.0,
     "technicalScore": 202.0,
-    "analysisScore": 72,
-    "sentiment": "Bullish",
+    "analysisScore": 66,
+    "sentiment": "Neutral",
     "date": "05/29/26 00:17"
   },
   {
     "ticker": "NOW",
-    "aiScore": 56.0,
+    "aiScore": 52.0,
     "technicalScore": 48.0,
-    "analysisScore": 55,
+    "analysisScore": 59,
     "sentiment": "Neutral",
     "date": "4"
   },
   {
     "ticker": "TWLO",
-    "aiScore": 77.0,
+    "aiScore": 76.0,
     "technicalScore": 28.0,
-    "analysisScore": 30,
-    "sentiment": "Bearish",
-    "date": "30"
+    "analysisScore": 46,
+    "sentiment": "Neutral",
+    "date": "3"
   },
   {
     "ticker": "HNGE",
