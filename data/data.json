@@ -121,11 +121,11 @@
   },
   {
     "ticker": "AA",
-    "aiScore": 82.0,
+    "aiScore": 83.0,
     "technicalScore": 45.0,
-    "analysisScore": 77,
+    "analysisScore": 85,
     "sentiment": "Bullish",
-    "date": "77"
+    "date": "85"
   },
   {
     "ticker": "ELAN",
