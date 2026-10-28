@@ -89,11 +89,11 @@
   },
   {
     "ticker": "FOX",
-    "aiScore": 68.0,
+    "aiScore": 72.0,
     "technicalScore": 57.0,
-    "analysisScore": 49,
+    "analysisScore": 45,
     "sentiment": "Neutral",
-    "date": "93"
+    "date": "95"
   },
   {
     "ticker": "SMTC",
@@ -121,19 +121,19 @@
   },
   {
     "ticker": "AA",
-    "aiScore": 79.0,
+    "aiScore": 78.0,
     "technicalScore": 40.0,
-    "analysisScore": 40,
-    "sentiment": "Neutral",
-    "date": "66"
+    "analysisScore": 81,
+    "sentiment": "Bullish",
+    "date": "81"
   },
   {
     "ticker": "ELAN",
-    "aiScore": 53.0,
+    "aiScore": 52.0,
     "technicalScore": 59.0,
-    "analysisScore": 75,
+    "analysisScore": 79,
     "sentiment": "Bullish",
-    "date": "75"
+    "date": "79"
   },
   {
     "ticker": "SPGI",
@@ -153,10 +153,10 @@
   },
   {
     "ticker": "CON",
-    "aiScore": 63.0,
+    "aiScore": 62.0,
     "technicalScore": 202.0,
-    "analysisScore": 70,
-    "sentiment": "Neutral",
+    "analysisScore": null,
+    "sentiment": "Onbekend",
     "date": "05/29/26 00:17"
   },
   {
