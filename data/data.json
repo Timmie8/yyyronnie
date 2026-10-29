@@ -1,16 +1,16 @@
 [
   {
     "ticker": "MLM",
-    "aiScore": 59.0,
+    "aiScore": 57.0,
     "technicalScore": 17.0,
-    "analysisScore": 54,
+    "analysisScore": 58,
     "sentiment": "Neutral",
-    "date": "35"
+    "date": "34"
   },
   {
     "ticker": "IRTC",
     "aiScore": 52.0,
-    "technicalScore": 44.0,
+    "technicalScore": 40.0,
     "analysisScore": 22,
     "sentiment": "Bearish",
     "date": "22"
@@ -26,7 +26,7 @@
   {
     "ticker": "GEF",
     "aiScore": 40.0,
-    "technicalScore": 37.0,
+    "technicalScore": 63.0,
     "analysisScore": 81,
     "sentiment": "Bullish",
     "date": "81"
@@ -58,7 +58,7 @@
   {
     "ticker": "IRD",
     "aiScore": 61.0,
-    "technicalScore": 50.0,
+    "technicalScore": 38.0,
     "analysisScore": 71,
     "sentiment": "Bullish",
     "date": "71"
@@ -74,7 +74,7 @@
   {
     "ticker": "LADR",
     "aiScore": 63.0,
-    "technicalScore": 22.0,
+    "technicalScore": 21.0,
     "analysisScore": 61,
     "sentiment": "Neutral",
     "date": "33"
@@ -169,11 +169,11 @@
   },
   {
     "ticker": "TWLO",
-    "aiScore": 77.0,
+    "aiScore": 78.0,
     "technicalScore": 30.0,
-    "analysisScore": 29,
-    "sentiment": "Bearish",
-    "date": "29"
+    "analysisScore": 45,
+    "sentiment": "Neutral",
+    "date": "32"
   },
   {
     "ticker": "HNGE",
