@@ -49,11 +49,11 @@
   },
   {
     "ticker": "ZETA",
-    "aiScore": 47.0,
-    "technicalScore": 57.0,
-    "analysisScore": 19,
+    "aiScore": 51.0,
+    "technicalScore": 58.0,
+    "analysisScore": 25,
     "sentiment": "Bearish",
-    "date": "19"
+    "date": "25"
   },
   {
     "ticker": "IRD",
@@ -89,11 +89,11 @@
   },
   {
     "ticker": "FOX",
-    "aiScore": 72.0,
+    "aiScore": 68.0,
     "technicalScore": 55.0,
-    "analysisScore": 45,
+    "analysisScore": 49,
     "sentiment": "Neutral",
-    "date": "95"
+    "date": "92"
   },
   {
     "ticker": "SMTC",
@@ -105,11 +105,11 @@
   },
   {
     "ticker": "PRAX",
-    "aiScore": 54.0,
+    "aiScore": 53.0,
     "technicalScore": 34.0,
-    "analysisScore": 55,
+    "analysisScore": 57,
     "sentiment": "Neutral",
-    "date": "48"
+    "date": "49"
   },
   {
     "ticker": "EIKN",
@@ -137,11 +137,11 @@
   },
   {
     "ticker": "SPGI",
-    "aiScore": 70.0,
+    "aiScore": 65.0,
     "technicalScore": 49.0,
-    "analysisScore": 20,
-    "sentiment": "Bearish",
-    "date": "20"
+    "analysisScore": null,
+    "sentiment": "Onbekend",
+    "date": "10"
   },
   {
     "ticker": "PLD",
@@ -161,11 +161,11 @@
   },
   {
     "ticker": "NOW",
-    "aiScore": 61.0,
+    "aiScore": 78.0,
     "technicalScore": 35.0,
-    "analysisScore": 57,
-    "sentiment": "Neutral",
-    "date": "13"
+    "analysisScore": 80,
+    "sentiment": "Bullish",
+    "date": "80"
   },
   {
     "ticker": "TWLO",
