@@ -1,41 +1,41 @@
 [
   {
     "ticker": "MLM",
-    "aiScore": 57.0,
-    "technicalScore": 17.0,
-    "analysisScore": 58,
-    "sentiment": "Neutral",
-    "date": "34"
+    "aiScore": 51.0,
+    "technicalScore": 28.0,
+    "analysisScore": 28,
+    "sentiment": "Bearish",
+    "date": "28"
   },
   {
     "ticker": "IRTC",
-    "aiScore": 52.0,
-    "technicalScore": 40.0,
-    "analysisScore": 22,
-    "sentiment": "Bearish",
-    "date": "22"
+    "aiScore": 51.0,
+    "technicalScore": 47.0,
+    "analysisScore": null,
+    "sentiment": "Onbekend",
+    "date": "10"
   },
   {
     "ticker": "FMX",
-    "aiScore": 46.0,
+    "aiScore": 62.0,
     "technicalScore": 45.0,
-    "analysisScore": 23,
+    "analysisScore": 24,
     "sentiment": "Bearish",
-    "date": "23"
+    "date": "24"
   },
   {
     "ticker": "GEF",
     "aiScore": 40.0,
-    "technicalScore": 63.0,
-    "analysisScore": 81,
+    "technicalScore": 65.0,
+    "analysisScore": 83,
     "sentiment": "Bullish",
-    "date": "81"
+    "date": "83"
   },
   {
     "ticker": "CAVA",
-    "aiScore": 65.0,
+    "aiScore": 53.0,
     "technicalScore": 202.0,
-    "analysisScore": 49,
+    "analysisScore": 60,
     "sentiment": "Neutral",
     "date": "N/A"
   },
@@ -43,7 +43,7 @@
     "ticker": "PMI",
     "aiScore": 13.0,
     "technicalScore": 202.0,
-    "analysisScore": 47,
+    "analysisScore": 50,
     "sentiment": "Neutral",
     "date": "05/28/26 22:15"
   },
@@ -58,32 +58,32 @@
   {
     "ticker": "IRD",
     "aiScore": 61.0,
-    "technicalScore": 38.0,
-    "analysisScore": 71,
+    "technicalScore": 45.0,
+    "analysisScore": 79,
     "sentiment": "Bullish",
-    "date": "71"
+    "date": "79"
   },
   {
     "ticker": "CPRI",
-    "aiScore": 59.0,
-    "technicalScore": 49.0,
-    "analysisScore": 50,
+    "aiScore": 56.0,
+    "technicalScore": 54.0,
+    "analysisScore": 58,
     "sentiment": "Neutral",
-    "date": "10"
+    "date": "5"
   },
   {
     "ticker": "LADR",
     "aiScore": 63.0,
-    "technicalScore": 21.0,
+    "technicalScore": 22.0,
     "analysisScore": 61,
     "sentiment": "Neutral",
     "date": "33"
   },
   {
     "ticker": "MBLY",
-    "aiScore": 61.0,
+    "aiScore": 55.0,
     "technicalScore": 202.0,
-    "analysisScore": 45,
+    "analysisScore": 35,
     "sentiment": "Neutral",
     "date": "05/29/26 01:20"
   },
@@ -98,10 +98,10 @@
   {
     "ticker": "SMTC",
     "aiScore": 92.0,
-    "technicalScore": 54.0,
-    "analysisScore": 17,
+    "technicalScore": 47.0,
+    "analysisScore": 28,
     "sentiment": "Bearish",
-    "date": "17"
+    "date": "28"
   },
   {
     "ticker": "PRAX",
@@ -129,11 +129,11 @@
   },
   {
     "ticker": "ELAN",
-    "aiScore": 52.0,
-    "technicalScore": 58.0,
-    "analysisScore": 79,
-    "sentiment": "Bullish",
-    "date": "79"
+    "aiScore": 50.0,
+    "technicalScore": 39.0,
+    "analysisScore": 55,
+    "sentiment": "Neutral",
+    "date": "31"
   },
   {
     "ticker": "SPGI",
@@ -146,14 +146,14 @@
   {
     "ticker": "PLD",
     "aiScore": 77.0,
-    "technicalScore": 57.0,
-    "analysisScore": 37,
+    "technicalScore": 43.0,
+    "analysisScore": 47,
     "sentiment": "Neutral",
-    "date": "95"
+    "date": "66"
   },
   {
     "ticker": "CON",
-    "aiScore": 62.0,
+    "aiScore": 60.0,
     "technicalScore": 202.0,
     "analysisScore": null,
     "sentiment": "Onbekend",
@@ -161,19 +161,19 @@
   },
   {
     "ticker": "NOW",
-    "aiScore": 48.0,
+    "aiScore": 61.0,
     "technicalScore": 35.0,
     "analysisScore": 57,
     "sentiment": "Neutral",
-    "date": "12"
+    "date": "13"
   },
   {
     "ticker": "TWLO",
-    "aiScore": 78.0,
-    "technicalScore": 30.0,
-    "analysisScore": 45,
+    "aiScore": 85.0,
+    "technicalScore": 28.0,
+    "analysisScore": 40,
     "sentiment": "Neutral",
-    "date": "32"
+    "date": "37"
   },
   {
     "ticker": "HNGE",
