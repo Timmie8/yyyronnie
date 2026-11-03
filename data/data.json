@@ -57,11 +57,11 @@
   },
   {
     "ticker": "IRD",
-    "aiScore": 61.0,
+    "aiScore": 60.0,
     "technicalScore": 40.0,
-    "analysisScore": 41,
+    "analysisScore": 47,
     "sentiment": "Neutral",
-    "date": "66"
+    "date": "53"
   },
   {
     "ticker": "CPRI",
@@ -123,17 +123,17 @@
     "ticker": "AA",
     "aiScore": 75.0,
     "technicalScore": 38.0,
-    "analysisScore": 42,
-    "sentiment": "Neutral",
-    "date": "59"
+    "analysisScore": 70,
+    "sentiment": "Bullish",
+    "date": "70"
   },
   {
     "ticker": "ELAN",
     "aiScore": 48.0,
     "technicalScore": 61.0,
-    "analysisScore": 63,
+    "analysisScore": 66,
     "sentiment": "Neutral",
-    "date": "3"
+    "date": "6"
   },
   {
     "ticker": "SPGI",
@@ -169,11 +169,11 @@
   },
   {
     "ticker": "TWLO",
-    "aiScore": 68.0,
+    "aiScore": 62.0,
     "technicalScore": 50.0,
-    "analysisScore": 81,
+    "analysisScore": 75,
     "sentiment": "Bullish",
-    "date": "81"
+    "date": "75"
   },
   {
     "ticker": "HNGE",
