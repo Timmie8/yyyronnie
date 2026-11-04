@@ -3,8 +3,8 @@
     "ticker": "MLM",
     "aiScore": 50.0,
     "technicalScore": 42.0,
-    "analysisScore": 68,
-    "sentiment": "Neutral",
+    "analysisScore": null,
+    "sentiment": "Onbekend",
     "date": "7"
   },
   {
