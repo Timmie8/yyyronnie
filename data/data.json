@@ -9,11 +9,11 @@
   },
   {
     "ticker": "IRTC",
-    "aiScore": 45.0,
+    "aiScore": 46.0,
     "technicalScore": 50.0,
-    "analysisScore": null,
-    "sentiment": "Onbekend",
-    "date": "5"
+    "analysisScore": 68,
+    "sentiment": "Neutral",
+    "date": "31"
   },
   {
     "ticker": "FMX",
@@ -57,11 +57,11 @@
   },
   {
     "ticker": "IRD",
-    "aiScore": 56.0,
+    "aiScore": 59.0,
     "technicalScore": 25.0,
-    "analysisScore": 23,
-    "sentiment": "Bearish",
-    "date": "23"
+    "analysisScore": 49,
+    "sentiment": "Neutral",
+    "date": "37"
   },
   {
     "ticker": "CPRI",
@@ -81,19 +81,19 @@
   },
   {
     "ticker": "MBLY",
-    "aiScore": 58.0,
+    "aiScore": 59.0,
     "technicalScore": 202.0,
-    "analysisScore": 37,
+    "analysisScore": 41,
     "sentiment": "Bearish",
     "date": "05/29/26 01:20"
   },
   {
     "ticker": "FOX",
-    "aiScore": 62.0,
+    "aiScore": 69.0,
     "technicalScore": 31.0,
-    "analysisScore": 63,
+    "analysisScore": 57,
     "sentiment": "Neutral",
-    "date": "35"
+    "date": "48"
   },
   {
     "ticker": "SMTC",
@@ -121,19 +121,19 @@
   },
   {
     "ticker": "AA",
-    "aiScore": 75.0,
+    "aiScore": 78.0,
     "technicalScore": 35.0,
-    "analysisScore": 47,
-    "sentiment": "Neutral",
-    "date": "58"
+    "analysisScore": 80,
+    "sentiment": "Bullish",
+    "date": "80"
   },
   {
     "ticker": "ELAN",
-    "aiScore": 47.0,
+    "aiScore": 50.0,
     "technicalScore": 60.0,
-    "analysisScore": null,
-    "sentiment": "Onbekend",
-    "date": "4"
+    "analysisScore": 53,
+    "sentiment": "Neutral",
+    "date": "42"
   },
   {
     "ticker": "SPGI",
@@ -153,10 +153,10 @@
   },
   {
     "ticker": "CON",
-    "aiScore": 55.0,
+    "aiScore": 64.0,
     "technicalScore": 202.0,
-    "analysisScore": null,
-    "sentiment": "Onbekend",
+    "analysisScore": 66,
+    "sentiment": "Neutral",
     "date": "05/29/26 00:17"
   },
   {
@@ -177,10 +177,10 @@
   },
   {
     "ticker": "HNGE",
-    "aiScore": 60.0,
+    "aiScore": 67.0,
     "technicalScore": 202.0,
-    "analysisScore": null,
-    "sentiment": "Onbekend",
+    "analysisScore": 63,
+    "sentiment": "Neutral",
     "date": "05/29/26 00:10"
   }
 ]
