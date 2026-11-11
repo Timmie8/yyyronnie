@@ -2,7 +2,7 @@
   {
     "ticker": "MLM",
     "aiScore": 62.0,
-    "technicalScore": 42.0,
+    "technicalScore": 40.0,
     "analysisScore": 55,
     "sentiment": "Neutral",
     "date": "9"
@@ -10,7 +10,7 @@
   {
     "ticker": "IRTC",
     "aiScore": 56.0,
-    "technicalScore": 25.0,
+    "technicalScore": 31.0,
     "analysisScore": 8,
     "sentiment": "Bearish",
     "date": "55"
@@ -26,7 +26,7 @@
   {
     "ticker": "GEF",
     "aiScore": 63.0,
-    "technicalScore": 48.0,
+    "technicalScore": 52.0,
     "analysisScore": 3,
     "sentiment": "Bearish",
     "date": "87"
@@ -50,7 +50,7 @@
   {
     "ticker": "ZETA",
     "aiScore": 57.0,
-    "technicalScore": 60.0,
+    "technicalScore": 63.0,
     "analysisScore": 61,
     "sentiment": "Neutral",
     "date": "15"
@@ -58,7 +58,7 @@
   {
     "ticker": "IRD",
     "aiScore": 57.0,
-    "technicalScore": 14.0,
+    "technicalScore": 15.0,
     "analysisScore": 54,
     "sentiment": "Neutral",
     "date": "36"
@@ -66,7 +66,7 @@
   {
     "ticker": "CPRI",
     "aiScore": 49.0,
-    "technicalScore": 65.0,
+    "technicalScore": 62.0,
     "analysisScore": 22,
     "sentiment": "Bullish",
     "date": "2"
@@ -74,7 +74,7 @@
   {
     "ticker": "LADR",
     "aiScore": 67.0,
-    "technicalScore": 43.0,
+    "technicalScore": 44.0,
     "analysisScore": 85,
     "sentiment": "Bullish",
     "date": "85"
@@ -90,7 +90,7 @@
   {
     "ticker": "FOX",
     "aiScore": 65.0,
-    "technicalScore": 30.0,
+    "technicalScore": 46.0,
     "analysisScore": 28,
     "sentiment": "Bearish",
     "date": "28"
@@ -98,7 +98,7 @@
   {
     "ticker": "SMTC",
     "aiScore": 91.0,
-    "technicalScore": 56.0,
+    "technicalScore": 63.0,
     "analysisScore": 40,
     "sentiment": "Neutral",
     "date": "91"
@@ -106,7 +106,7 @@
   {
     "ticker": "PRAX",
     "aiScore": 57.0,
-    "technicalScore": 43.0,
+    "technicalScore": 38.0,
     "analysisScore": 68,
     "sentiment": "Neutral",
     "date": "32"
@@ -122,7 +122,7 @@
   {
     "ticker": "AA",
     "aiScore": 75.0,
-    "technicalScore": 38.0,
+    "technicalScore": 43.0,
     "analysisScore": 82,
     "sentiment": "Bullish",
     "date": "82"
@@ -130,7 +130,7 @@
   {
     "ticker": "ELAN",
     "aiScore": 49.0,
-    "technicalScore": 58.0,
+    "technicalScore": 54.0,
     "analysisScore": 17,
     "sentiment": "Bearish",
     "date": "17"
@@ -138,7 +138,7 @@
   {
     "ticker": "SPGI",
     "aiScore": 60.0,
-    "technicalScore": 49.0,
+    "technicalScore": 48.0,
     "analysisScore": 26,
     "sentiment": "Bearish",
     "date": "26"
@@ -146,7 +146,7 @@
   {
     "ticker": "PLD",
     "aiScore": 79.0,
-    "technicalScore": 48.0,
+    "technicalScore": 57.0,
     "analysisScore": 52,
     "sentiment": "Neutral",
     "date": "90"
@@ -162,7 +162,7 @@
   {
     "ticker": "NOW",
     "aiScore": 72.0,
-    "technicalScore": 36.0,
+    "technicalScore": 40.0,
     "analysisScore": 79,
     "sentiment": "Bullish",
     "date": "79"
@@ -170,7 +170,7 @@
   {
     "ticker": "TWLO",
     "aiScore": 58.0,
-    "technicalScore": 46.0,
+    "technicalScore": 52.0,
     "analysisScore": 75,
     "sentiment": "Bullish",
     "date": "75"
