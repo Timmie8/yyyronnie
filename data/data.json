@@ -1,9 +1,9 @@
 [
   {
     "ticker": "MLM",
-    "aiScore": 62.0,
+    "aiScore": 66.0,
     "technicalScore": 38.0,
-    "analysisScore": 53,
+    "analysisScore": 50,
     "sentiment": "Neutral",
     "date": "9"
   },
@@ -61,7 +61,7 @@
     "technicalScore": 13.0,
     "analysisScore": 56,
     "sentiment": "Neutral",
-    "date": "35"
+    "date": "37"
   },
   {
     "ticker": "CPRI",
@@ -121,11 +121,11 @@
   },
   {
     "ticker": "AA",
-    "aiScore": 73.0,
+    "aiScore": 74.0,
     "technicalScore": 36.0,
-    "analysisScore": 51,
-    "sentiment": "Neutral",
-    "date": "65"
+    "analysisScore": 77,
+    "sentiment": "Bullish",
+    "date": "77"
   },
   {
     "ticker": "ELAN",
