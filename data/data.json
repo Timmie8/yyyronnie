@@ -10,7 +10,7 @@
   {
     "ticker": "IRTC",
     "aiScore": 52.0,
-    "technicalScore": 26.0,
+    "technicalScore": 24.0,
     "analysisScore": 36,
     "sentiment": "Neutral",
     "date": "46"
@@ -18,7 +18,7 @@
   {
     "ticker": "FMX",
     "aiScore": 51.0,
-    "technicalScore": 50.0,
+    "technicalScore": 48.0,
     "analysisScore": 23,
     "sentiment": "Bearish",
     "date": "23"
