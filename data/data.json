@@ -2,7 +2,7 @@
   {
     "ticker": "MLM",
     "aiScore": 65.0,
-    "technicalScore": 38.0,
+    "technicalScore": 40.0,
     "analysisScore": 48,
     "sentiment": "Neutral",
     "date": "5"
@@ -10,7 +10,7 @@
   {
     "ticker": "IRTC",
     "aiScore": 54.0,
-    "technicalScore": 24.0,
+    "technicalScore": 30.0,
     "analysisScore": 35,
     "sentiment": "Neutral",
     "date": "47"
@@ -18,7 +18,7 @@
   {
     "ticker": "FMX",
     "aiScore": 49.0,
-    "technicalScore": 48.0,
+    "technicalScore": 50.0,
     "analysisScore": 65,
     "sentiment": "Neutral",
     "date": "14"
@@ -26,7 +26,7 @@
   {
     "ticker": "GEF",
     "aiScore": 62.0,
-    "technicalScore": 45.0,
+    "technicalScore": 50.0,
     "analysisScore": 81,
     "sentiment": "Bullish",
     "date": "81"
@@ -50,7 +50,7 @@
   {
     "ticker": "ZETA",
     "aiScore": 57.0,
-    "technicalScore": 59.0,
+    "technicalScore": 56.0,
     "analysisScore": 22,
     "sentiment": "Bearish",
     "date": "22"
@@ -58,7 +58,7 @@
   {
     "ticker": "IRD",
     "aiScore": 51.0,
-    "technicalScore": 36.0,
+    "technicalScore": 39.0,
     "analysisScore": 47,
     "sentiment": "Neutral",
     "date": "68"
@@ -66,7 +66,7 @@
   {
     "ticker": "CPRI",
     "aiScore": 46.0,
-    "technicalScore": 56.0,
+    "technicalScore": 65.0,
     "analysisScore": 70,
     "sentiment": "Neutral",
     "date": "1"
@@ -90,7 +90,7 @@
   {
     "ticker": "FOX",
     "aiScore": 60.0,
-    "technicalScore": 33.0,
+    "technicalScore": 49.0,
     "analysisScore": 58,
     "sentiment": "Neutral",
     "date": "13"
@@ -98,7 +98,7 @@
   {
     "ticker": "SMTC",
     "aiScore": 88.0,
-    "technicalScore": 54.0,
+    "technicalScore": 59.0,
     "analysisScore": 77,
     "sentiment": "Bullish",
     "date": "77"
@@ -122,7 +122,7 @@
   {
     "ticker": "AA",
     "aiScore": 75.0,
-    "technicalScore": 39.0,
+    "technicalScore": 40.0,
     "analysisScore": 72,
     "sentiment": "Bullish",
     "date": "72"
@@ -138,7 +138,7 @@
   {
     "ticker": "SPGI",
     "aiScore": 56.0,
-    "technicalScore": 49.0,
+    "technicalScore": 52.0,
     "analysisScore": 64,
     "sentiment": "Neutral",
     "date": "13"
@@ -146,7 +146,7 @@
   {
     "ticker": "PLD",
     "aiScore": 80.0,
-    "technicalScore": 57.0,
+    "technicalScore": 55.0,
     "analysisScore": 49,
     "sentiment": "Neutral",
     "date": "88"
@@ -162,7 +162,7 @@
   {
     "ticker": "NOW",
     "aiScore": 66.0,
-    "technicalScore": 53.0,
+    "technicalScore": 50.0,
     "analysisScore": 84,
     "sentiment": "Bullish",
     "date": "84"
@@ -170,7 +170,7 @@
   {
     "ticker": "TWLO",
     "aiScore": 65.0,
-    "technicalScore": 53.0,
+    "technicalScore": 58.0,
     "analysisScore": 79,
     "sentiment": "Bullish",
     "date": "79"
