@@ -153,11 +153,7 @@
   },
   {
     "ticker": "CON",
-    "aiScore": 82.0,
-    "technicalScore": 202.0,
-    "analysisScore": 64,
-    "sentiment": "Neutral",
-    "date": "05/29/26 00:17"
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://yrobot.us/chart/CON\", waiting until \"load\"\n"
   },
   {
     "ticker": "NOW",
