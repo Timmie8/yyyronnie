@@ -2,7 +2,7 @@
   {
     "ticker": "MLM",
     "aiScore": 62.0,
-    "technicalScore": 45.0,
+    "technicalScore": 38.0,
     "analysisScore": 46,
     "sentiment": "Neutral",
     "date": "7"
@@ -10,7 +10,7 @@
   {
     "ticker": "IRTC",
     "aiScore": 52.0,
-    "technicalScore": 28.0,
+    "technicalScore": 38.0,
     "analysisScore": 40,
     "sentiment": "Neutral",
     "date": "51"
@@ -26,7 +26,7 @@
   {
     "ticker": "GEF",
     "aiScore": 65.0,
-    "technicalScore": 57.0,
+    "technicalScore": 60.0,
     "analysisScore": null,
     "sentiment": "Onbekend",
     "date": "94"
@@ -50,7 +50,7 @@
   {
     "ticker": "ZETA",
     "aiScore": 70.0,
-    "technicalScore": 53.0,
+    "technicalScore": 51.0,
     "analysisScore": 46,
     "sentiment": "Neutral",
     "date": "42"
@@ -58,7 +58,7 @@
   {
     "ticker": "IRD",
     "aiScore": 50.0,
-    "technicalScore": 44.0,
+    "technicalScore": 30.0,
     "analysisScore": 50,
     "sentiment": "Neutral",
     "date": "51"
@@ -74,7 +74,7 @@
   {
     "ticker": "LADR",
     "aiScore": 68.0,
-    "technicalScore": 42.0,
+    "technicalScore": 43.0,
     "analysisScore": 31,
     "sentiment": "Neutral",
     "date": "67"
@@ -98,7 +98,7 @@
   {
     "ticker": "SMTC",
     "aiScore": 84.0,
-    "technicalScore": 61.0,
+    "technicalScore": 65.0,
     "analysisScore": 38,
     "sentiment": "Neutral",
     "date": "87"
@@ -106,7 +106,7 @@
   {
     "ticker": "PRAX",
     "aiScore": 62.0,
-    "technicalScore": 28.0,
+    "technicalScore": 26.0,
     "analysisScore": 55,
     "sentiment": "Neutral",
     "date": "34"
@@ -122,7 +122,7 @@
   {
     "ticker": "AA",
     "aiScore": 79.0,
-    "technicalScore": 36.0,
+    "technicalScore": 37.0,
     "analysisScore": 33,
     "sentiment": "Neutral",
     "date": "59"
@@ -130,7 +130,7 @@
   {
     "ticker": "ELAN",
     "aiScore": 46.0,
-    "technicalScore": 52.0,
+    "technicalScore": 44.0,
     "analysisScore": 26,
     "sentiment": "Bearish",
     "date": "26"
@@ -146,7 +146,7 @@
   {
     "ticker": "PLD",
     "aiScore": 78.0,
-    "technicalScore": 57.0,
+    "technicalScore": 53.0,
     "analysisScore": 76,
     "sentiment": "Bullish",
     "date": "76"
@@ -162,7 +162,7 @@
   {
     "ticker": "NOW",
     "aiScore": 79.0,
-    "technicalScore": 52.0,
+    "technicalScore": 53.0,
     "analysisScore": 83,
     "sentiment": "Bullish",
     "date": "83"
