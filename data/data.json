@@ -25,11 +25,11 @@
   },
   {
     "ticker": "GEF",
-    "aiScore": 63.0,
+    "aiScore": 66.0,
     "technicalScore": 49.0,
     "analysisScore": null,
     "sentiment": "Onbekend",
-    "date": "59"
+    "date": "96"
   },
   {
     "ticker": "CAVA",
@@ -91,9 +91,9 @@
     "ticker": "FOX",
     "aiScore": 60.0,
     "technicalScore": 47.0,
-    "analysisScore": 46,
-    "sentiment": "Neutral",
-    "date": "44"
+    "analysisScore": 28,
+    "sentiment": "Bearish",
+    "date": "28"
   },
   {
     "ticker": "SMTC",
@@ -121,11 +121,11 @@
   },
   {
     "ticker": "AA",
-    "aiScore": 76.0,
+    "aiScore": 78.0,
     "technicalScore": 25.0,
-    "analysisScore": 37,
+    "analysisScore": 35,
     "sentiment": "Neutral",
-    "date": "30"
+    "date": "64"
   },
   {
     "ticker": "ELAN",
