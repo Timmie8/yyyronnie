@@ -25,17 +25,17 @@
   },
   {
     "ticker": "GEF",
-    "aiScore": 64.0,
+    "aiScore": 61.0,
     "technicalScore": 51.0,
-    "analysisScore": 81,
-    "sentiment": "Bullish",
-    "date": "81"
+    "analysisScore": 43,
+    "sentiment": "Neutral",
+    "date": "53"
   },
   {
     "ticker": "CAVA",
     "aiScore": 64.0,
     "technicalScore": 202.0,
-    "analysisScore": 50,
+    "analysisScore": 51,
     "sentiment": "Neutral",
     "date": "N/A"
   },
@@ -65,11 +65,11 @@
   },
   {
     "ticker": "CPRI",
-    "aiScore": 59.0,
+    "aiScore": 57.0,
     "technicalScore": 59.0,
-    "analysisScore": 47,
+    "analysisScore": 50,
     "sentiment": "Neutral",
-    "date": "2"
+    "date": "1"
   },
   {
     "ticker": "LADR",
@@ -77,7 +77,7 @@
     "technicalScore": 34.0,
     "analysisScore": 52,
     "sentiment": "Neutral",
-    "date": "46"
+    "date": "51"
   },
   {
     "ticker": "MBLY",
@@ -89,11 +89,11 @@
   },
   {
     "ticker": "FOX",
-    "aiScore": 63.0,
+    "aiScore": 60.0,
     "technicalScore": 31.0,
-    "analysisScore": 48,
+    "analysisScore": 51,
     "sentiment": "Neutral",
-    "date": "34"
+    "date": "15"
   },
   {
     "ticker": "SMTC",
@@ -121,11 +121,11 @@
   },
   {
     "ticker": "AA",
-    "aiScore": 77.0,
+    "aiScore": 76.0,
     "technicalScore": 33.0,
-    "analysisScore": 38,
+    "analysisScore": 43,
     "sentiment": "Neutral",
-    "date": "54"
+    "date": "51"
   },
   {
     "ticker": "ELAN",
@@ -153,9 +153,9 @@
   },
   {
     "ticker": "CON",
-    "aiScore": 74.0,
+    "aiScore": 72.0,
     "technicalScore": 202.0,
-    "analysisScore": 61,
+    "analysisScore": 64,
     "sentiment": "Neutral",
     "date": "05/29/26 00:17"
   },
@@ -177,9 +177,9 @@
   },
   {
     "ticker": "HNGE",
-    "aiScore": 70.0,
+    "aiScore": 67.0,
     "technicalScore": 202.0,
-    "analysisScore": 46,
+    "analysisScore": 49,
     "sentiment": "Neutral",
     "date": "05/29/26 00:10"
   }
